@@ -49,4 +49,4 @@ for ul in listInfoUl:
             #line訊息
             msg = emoji.emojize('\n小幫手來啦~ :relaxed: \n租屋網更新資訊啦! :boom: \n :mega:  ', use_aliases=True) + title + emoji.emojize('\n :dollar:  ', use_aliases=True) + price + emoji.emojize('\n :memo:  ', use_aliases=True) + wordDetail + emoji.emojize('\n :alarm_clock:  ', use_aliases=True) + uptime + emoji.emojize('\n\n :tada:  看更詳細點↓網址 \n https:', use_aliases=True) + detailUrl
             lineNotifyMessage("9XEGPMx6Tjpw6RTbTm6VcxHkeBxOs4637PoFWeqAEYe", msg, img)   
-            #print(msg)
+            print(msg)
