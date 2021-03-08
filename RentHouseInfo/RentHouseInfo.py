@@ -24,10 +24,9 @@ headers = {
 response = requests.get(url=url, headers=headers)
 
 soup = BeautifulSoup(response.text, "html.parser")
-
 listInfoUl = soup.find_all("ul", class_="listInfo clearfix")
+print(listInfoUl)
 num = 0
-print(1)
 for ul in listInfoUl:
     img = ul.find("img").get("data-original")  
     title = ul.find("a").getText()
