@@ -16,7 +16,7 @@ def lineNotifyMessage(token, msg, imgUrl):
 
 
 # 取得591租屋資訊
-url = "https://rent.591.com.tw/?kind=0&region=8&section=98,102,101,100,99&rentprice=0,15000&pattern=2&order=posttime&orderType=asc"
+url = "https://rent.591.com.tw/?kind=0&order=posttime&orderType=asc&region=8&section=98,102,101,100,99&rentprice=0,15000&pattern=2"
 headers = {
     "Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
     "User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36"
