@@ -27,12 +27,14 @@ soup = BeautifulSoup(response.text, "html.parser")
 
 listInfoUl = soup.find_all("ul", class_="listInfo clearfix")
 num = 0
+print(1)
 for ul in listInfoUl:
     img = ul.find("img").get("data-original")  
     title = ul.find("a").getText()
     detailUrl = ul.find("a").get("href") 
     price = ul.find("div", class_="price").getText().strip()
     wordDetail = ''
+    print(2)
     for de in ul.find_all("p", class_="lightBox"):
         wordDetail = wordDetail + " | " + de.getText().replace(" ", "").replace("\n", "")
     for up in ul.find_all("em"):
