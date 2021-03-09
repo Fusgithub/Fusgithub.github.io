@@ -19,7 +19,8 @@ def lineNotifyMessage(token, msg, imgUrl):
 url = "https://rent.591.com.tw/?kind=0&order=posttime&orderType=asc&region=8&section=98,102,101,100,99&rentprice=0,15000&pattern=2"
 headers = {
     "Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36"
+    "User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36",
+    "Upgrade-Insecure-Requests" : "1"
 }
 response = requests.get(url=url, headers=headers)
 soup = BeautifulSoup(response.text, "html.parser")
@@ -49,5 +50,5 @@ for ul in listInfoUl:
         if int(hours) <= 3:
             #line訊息
             msg = emoji.emojize('\n小幫手來啦~ :relaxed: \n租屋網更新資訊啦! :boom: \n :mega:  ', use_aliases=True) + title + emoji.emojize('\n :dollar:  ', use_aliases=True) + price + emoji.emojize('\n :memo:  ', use_aliases=True) + wordDetail + emoji.emojize('\n :alarm_clock:  ', use_aliases=True) + uptime + emoji.emojize('\n\n :tada:  看更詳細點↓網址 \n https:', use_aliases=True) + detailUrl
-            lineNotifyMessage("9XEGPMx6Tjpw6RTbTm6VcxHkeBxOs4637PoFWeqAEYe", msg, img)   
+            #lineNotifyMessage("9XEGPMx6Tjpw6RTbTm6VcxHkeBxOs4637PoFWeqAEYe", msg, img)   
             print(msg)
