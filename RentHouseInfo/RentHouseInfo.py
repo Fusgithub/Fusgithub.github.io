@@ -17,14 +17,20 @@ def lineNotifyMessage(token, msg, imgUrl):
 
 # 取得591租屋資訊
 url = "https://rent.591.com.tw/?kind=0&order=posttime&orderType=asc&region=8&section=98,102,101,100,99&rentprice=0,15000&pattern=2"
+#url = "https://rent.591.com.tw/home/search/rsList?is_new_list=1&type=1&kind=0&searchtype=1&region=8&section=98,102,101,99,100&rentprice=0,15000&pattern=2&order=posttime&orderType=desc"
 headers = {
-    "Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+    "Accept" : "application/json, text/javascript, */*; q=0.01",
+    "Accept-Encoding" : "gzip, deflate, br",
+    "Accept-Language" : "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Connection" : "keep-alive",
     "User-Agent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.190 Safari/537.36",
-    "Upgrade-Insecure-Requests" : "1"
+    "Upgrade-Insecure-Requests" : "1",
+    "Cache-Control" : "max-age=0",
+    "Host" : "rent.591.com.tw",   
 }
 response = requests.get(url=url, headers=headers)
 soup = BeautifulSoup(response.text, "html.parser")
-print(soup)
+
 listInfoUl = soup.find_all("ul", class_="listInfo clearfix")
 print(listInfoUl)
 num = 0
