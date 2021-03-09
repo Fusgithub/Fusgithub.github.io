@@ -32,7 +32,6 @@ response = requests.get(url=url, headers=headers)
 soup = BeautifulSoup(response.text, "html.parser")
 
 listInfoUl = soup.find_all("ul", class_="listInfo clearfix")
-print(listInfoUl)
 num = 0
 for ul in listInfoUl:
     img = ul.find("img").get("data-original")  
@@ -40,7 +39,6 @@ for ul in listInfoUl:
     detailUrl = ul.find("a").get("href") 
     price = ul.find("div", class_="price").getText().strip()
     wordDetail = ''
-    print(2)
     for de in ul.find_all("p", class_="lightBox"):
         wordDetail = wordDetail + " | " + de.getText().replace(" ", "").replace("\n", "")
     for up in ul.find_all("em"):
@@ -56,5 +54,4 @@ for ul in listInfoUl:
         if int(hours) <= 3:
             #line訊息
             msg = emoji.emojize('\n小幫手來啦~ :relaxed: \n租屋網更新資訊啦! :boom: \n :mega:  ', use_aliases=True) + title + emoji.emojize('\n :dollar:  ', use_aliases=True) + price + emoji.emojize('\n :memo:  ', use_aliases=True) + wordDetail + emoji.emojize('\n :alarm_clock:  ', use_aliases=True) + uptime + emoji.emojize('\n\n :tada:  看更詳細點↓網址 \n https:', use_aliases=True) + detailUrl
-            #lineNotifyMessage("9XEGPMx6Tjpw6RTbTm6VcxHkeBxOs4637PoFWeqAEYe", msg, img)   
-            print(msg)
+            lineNotifyMessage("9XEGPMx6Tjpw6RTbTm6VcxHkeBxOs4637PoFWeqAEYe", msg, img)          
